@@ -31,10 +31,10 @@
               "client_type": 3
             },
             {
-              "client_id": "926544606239-r8c36tall4dat8hijg45sa3fahcq99al.apps.googleusercontent.com",
+              "client_id": "926544606239-2ncije9gmhgsv268nuke8a6u5mv8ejql.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.cwBsmmTicketzApp"
+                "bundle_id": "com.jsdevexperiment.ticketz"
               }
             }
           ]
@@ -67,10 +67,10 @@
               "client_type": 3
             },
             {
-              "client_id": "926544606239-r8c36tall4dat8hijg45sa3fahcq99al.apps.googleusercontent.com",
+              "client_id": "926544606239-2ncije9gmhgsv268nuke8a6u5mv8ejql.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.cwBsmmTicketzApp"
+                "bundle_id": "com.jsdevexperiment.ticketz"
               }
             }
           ]
