@@ -3,7 +3,7 @@ import 'package:ticketz/models/attendance_update.dart';
 import 'package:ticketz/models/payment_update.dart';
 
 class Participant {
-  String id;
+  String? id;
   String englishName;
   String? chineseName;
   String icNumber;
@@ -22,7 +22,7 @@ class Participant {
   List<AttendanceUpdate>? attendanceUpdates;
 
   Participant({
-    required this.id,
+    this.id,
     required this.englishName,
     required this.icNumber,
     required this.phoneNumber,

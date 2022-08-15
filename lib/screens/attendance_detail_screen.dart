@@ -106,7 +106,7 @@ class AttendanceDetailScreen extends StatelessWidget {
 
                                 try {
                                   firestoreService.updateAttendanceStatus(
-                                    participant.id,
+                                    participant.id!,
                                     false,
                                     userEmail ?? 'N/A',
                                   );
@@ -128,7 +128,7 @@ class AttendanceDetailScreen extends StatelessWidget {
 
                                 try {
                                   firestoreService.updateAttendanceStatus(
-                                    participant.id,
+                                    participant.id!,
                                     true,
                                     userEmail ?? 'N/A',
                                   );
@@ -146,7 +146,7 @@ class AttendanceDetailScreen extends StatelessWidget {
                           children: [
                             ReadOnlyField(
                               label: 'Participant ID',
-                              content: participant.id,
+                              content: participant.id!,
                             ),
                             ReadOnlyField(
                               label: 'NRIC',

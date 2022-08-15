@@ -26,7 +26,7 @@ class _SignInScreenState extends State<SignInScreen> {
       listen: false,
     );
 
-    final String email = emailController.text;
+    final String email = emailController.text.trim();
     final String password = passwordController.text;
     if (_formKey.currentState!.validate()) {
       authStateProvider.loading = true;

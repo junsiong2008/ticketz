@@ -1,3 +1,5 @@
+import 'package:provider/provider.dart';
+import 'package:ticketz/providers/search_provider.dart';
 import 'package:ticketz/screens/attendance_screen.dart';
 import 'package:ticketz/screens/home_screen.dart';
 import 'package:ticketz/screens/participant_screen.dart';
@@ -21,6 +23,10 @@ class _MainScreenState extends State<MainScreen> {
   ];
 
   void _onItemTapped(int index) {
+    if (_selectedIndex != index) {
+      Provider.of<SearchProvider>(context, listen: false).clearQuery();
+    }
+
     setState(() {
       _selectedIndex = index;
     });

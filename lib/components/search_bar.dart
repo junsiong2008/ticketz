@@ -38,8 +38,10 @@ class _SearchBarState extends State<SearchBar> {
             padding: const EdgeInsets.only(right: 16),
             constraints: const BoxConstraints(),
             onPressed: () {
-              Provider.of<SearchProvider>(context, listen: false)
-                  .disableSearch();
+              final SearchProvider searchProvider =
+                  Provider.of<SearchProvider>(context, listen: false);
+              searchProvider.clearQuery();
+              searchProvider.disableSearch();
             },
             icon: const Icon(
               Icons.arrow_back,

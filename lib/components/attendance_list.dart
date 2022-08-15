@@ -32,7 +32,7 @@ class AttendanceList extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: ((context) => AttendanceDetailScreen(
-                      participantId: participants[index].id,
+                      participantId: participants[index].id!,
                     )),
               ),
             );

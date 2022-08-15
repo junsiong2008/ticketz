@@ -24,7 +24,7 @@ class ParticipantList extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: ((context) => ParticipantDetailScreen(
-                      participantId: participants[index].id,
+                      participantId: participants[index].id!,
                     )),
               ),
             );

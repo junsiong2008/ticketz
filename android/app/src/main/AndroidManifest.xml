@@ -9,7 +9,7 @@
    <uses-feature android:name="android.hardware.camera" />
 
    <application
-        android:label="ticketz"
+        android:label="Ticketz"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
     

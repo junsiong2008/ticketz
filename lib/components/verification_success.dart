@@ -64,7 +64,7 @@ class VerificationSuccess extends StatelessWidget {
                   children: [
                     VerifiedTicketDetail(
                       label: 'TICKET NO',
-                      text: participant.id,
+                      text: participant.id!,
                     ),
                     VerifiedTicketDetail(
                       label: 'NAME',

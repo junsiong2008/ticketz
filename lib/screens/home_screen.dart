@@ -7,6 +7,8 @@ import 'package:ticketz/screens/qr_attendance_screen.dart';
 import 'package:ticketz/shared/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:ticketz/components/primary_button.dart';
+import 'package:ticketz/providers/excel_provider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -58,18 +60,23 @@ class HomeScreen extends StatelessWidget {
                     ),
                     child: Stack(
                       children: <Widget>[
-                        const Padding(
-                          padding: EdgeInsets.only(
+                        Padding(
+                          padding: const EdgeInsets.only(
                             top: 16.0,
                             left: 16.0,
                           ),
-                          child: Text(
-                            'Total Registered',
-                            style: TextStyle(
-                              fontSize: 16.0,
-                              height: 1.5,
-                              fontWeight: FontWeight.w500,
-                            ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: const [
+                              Text(
+                                'Total Registered',
+                                style: TextStyle(
+                                  fontSize: 16.0,
+                                  height: 1.5,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                         ClipRRect(
@@ -78,6 +85,14 @@ class HomeScreen extends StatelessWidget {
                           ),
                           child: Consumer<List<Participant>>(
                             builder: ((context, value, child) {
+                              if (value.isEmpty) {
+                                return const Align(
+                                  alignment: Alignment.center,
+                                  child: CircularProgressIndicator(
+                                    color: kPrimaryColor,
+                                  ),
+                                );
+                              }
                               return RegisteredLineChart(
                                 participants: value,
                               );
@@ -116,6 +131,103 @@ class HomeScreen extends StatelessWidget {
                         MaterialPageRoute(
                             builder: (context) => const QRAttendanceScreen()),
                       );
+                    },
+                  ),
+                  LargeButton(
+                    buttonColor: kTertiaryColor,
+                    labelColor: Colors.white,
+                    labelIconData: Icons.ios_share,
+                    labelText: 'Export participants detail to Excel',
+                    onTap: () {
+                      showModalBottomSheet(
+                          context: context,
+                          builder: (context) {
+                            return SingleChildScrollView(
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 24.0,
+                                  vertical: 16.0,
+                                ),
+                                child: Wrap(
+                                  runSpacing: 16.0,
+                                  alignment: WrapAlignment.center,
+                                  crossAxisAlignment: WrapCrossAlignment.center,
+                                  children: <Widget>[
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        IconButton(
+                                          onPressed: () {
+                                            Provider.of<ExcelProvider>(
+                                              context,
+                                              listen: false,
+                                            ).resetState();
+                                            Navigator.of(context).pop();
+                                          },
+                                          icon: const Icon(
+                                            Icons.close,
+                                          ),
+                                          padding: EdgeInsets.zero,
+                                          constraints: const BoxConstraints(),
+                                        ),
+                                      ],
+                                    ),
+                                    const Text(
+                                      'Export to Excel?',
+                                      style: TextStyle(
+                                        fontSize: 20.0,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                    const Text(
+                                      'This will export participant details, payment and attendance status to an Excel file.',
+                                      style: TextStyle(
+                                        color: Colors.black54,
+                                        fontSize: 16,
+                                        height: 1.5,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                    Consumer<ExcelProvider>(
+                                        builder: (context, value, child) {
+                                      if (value.isError) {
+                                        return Text(
+                                          value.errorMessage ?? '',
+                                          style: const TextStyle(
+                                            fontSize: 14.0,
+                                            color: Colors.red,
+                                          ),
+                                        );
+                                      } else {
+                                        return const SizedBox();
+                                      }
+                                    }),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        vertical: 16.0,
+                                      ),
+                                      child: Consumer<List<Participant>>(
+                                        builder: (context, value, child) {
+                                          return PrimaryButton(
+                                              label: 'Export',
+                                              onTap: () async {
+                                                final excelProvider =
+                                                    Provider.of<ExcelProvider>(
+                                                  context,
+                                                  listen: false,
+                                                );
+                                                await excelProvider
+                                                    .exportToExcel(value);
+                                              });
+                                        },
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          });
                     },
                   ),
                 ],
