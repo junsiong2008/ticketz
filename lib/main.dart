@@ -58,7 +58,7 @@ void main() async {
           ),
           ChangeNotifierProvider(
             create: (context) => RegistrationFormProvider(),
-          )
+          ),
         ],
         child: const MyApp(),
       ),

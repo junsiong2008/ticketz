@@ -54,4 +54,9 @@ class FirestoreService {
     };
     await docRef.update(updates);
   }
+
+  Future<void> deleteParticipant(String documentId) async {
+    final docRef = firestoreService.collection('participants').doc(documentId);
+    await docRef.delete();
+  }
 }

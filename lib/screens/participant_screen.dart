@@ -105,7 +105,7 @@ class ParticipantScreen extends StatelessWidget {
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(
-                top: 48.0,
+                top: 24.0,
                 left: 24.0,
                 right: 24.0,
               ),

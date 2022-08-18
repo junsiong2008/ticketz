@@ -1,3 +1,4 @@
+import 'package:permission_handler/permission_handler.dart';
 import 'package:ticketz/components/large_button.dart';
 import 'package:ticketz/components/page_title.dart';
 import 'package:ticketz/screens/manual_attendance_screen.dart';
@@ -42,21 +43,52 @@ class AttendanceScreen extends StatelessWidget {
                     },
                   ),
                   LargeButton(
-                    buttonColor: kPrimaryColor,
-                    labelColor: Colors.white,
-                    labelIconData: Icons.qr_code_scanner,
-                    labelText: 'Scan to verify participants attendance',
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return const QRAttendanceScreen();
-                      }));
-                    },
-                  ),
+                      buttonColor: kPrimaryColor,
+                      labelColor: Colors.white,
+                      labelIconData: Icons.qr_code_scanner,
+                      labelText: 'Scan to verify participants attendance',
+                      onTap: () async {
+                        final navigator = Navigator.of(context);
+
+                        await _checkCameraPermission().then(
+                          (value) {
+                            if (value) {
+                              navigator.push(
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const QRAttendanceScreen()),
+                              );
+                            } else {
+                              _showPermissionDeniedSnackBar(context);
+                            }
+                          },
+                        );
+                      })
                 ],
               ),
             )
           ],
+        ),
+      ),
+    );
+  }
+
+  Future<bool> _checkCameraPermission() async {
+    final permissionStatus = await Permission.camera.status;
+
+    if (!permissionStatus.isGranted) {
+      await Permission.camera.request();
+    }
+    return await Permission.camera.isGranted;
+  }
+
+  void _showPermissionDeniedSnackBar(BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Please allow camera permission to scan QR code.'),
+        action: SnackBarAction(
+          label: 'Settings',
+          onPressed: openAppSettings,
         ),
       ),
     );
