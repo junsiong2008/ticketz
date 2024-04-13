@@ -3,10 +3,10 @@ import 'package:ticketz/shared/constants.dart';
 
 class SmallTextButton extends StatelessWidget {
   const SmallTextButton({
-    Key? key,
+    super.key,
     required this.label,
     this.onPressed,
-  }) : super(key: key);
+  });
 
   final void Function()? onPressed;
   final String label;

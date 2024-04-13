@@ -3,11 +3,11 @@ import 'package:ticketz/shared/constants.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({
-    Key? key,
+    super.key,
     required this.title,
     required this.actions,
     this.backButton = false,
-  }) : super(key: key);
+  });
 
   final String title;
   final List<IconButton> actions;

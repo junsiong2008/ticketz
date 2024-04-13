@@ -4,9 +4,9 @@ import 'package:ticketz/screens/attendance_detail_screen.dart';
 
 class AttendanceList extends StatelessWidget {
   const AttendanceList({
-    Key? key,
+    super.key,
     required this.participants,
-  }) : super(key: key);
+  });
 
   final List<Participant> participants;
   @override

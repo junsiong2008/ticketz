@@ -63,16 +63,12 @@ class Participant {
         'datetimeCreated': participant.datetimeCreated,
         'isPaid': participant.isPaid,
         'isAttended': participant.isAttended,
-        'paymentUpdates': participant.paymentUpdates == null
-            ? null
-            : participant.paymentUpdates!
-                .map((update) => update.paymentUpdateToJson())
-                .toList(),
-        'attendanceUpdates': participant.attendanceUpdates == null
-            ? null
-            : participant.attendanceUpdates!
-                .map((update) => update.attendanceUpdateToJson())
-                .toList(),
+        'paymentUpdates': participant.paymentUpdates
+            ?.map((update) => update.paymentUpdateToJson())
+            .toList(),
+        'attendanceUpdates': participant.attendanceUpdates
+            ?.map((update) => update.attendanceUpdateToJson())
+            .toList(),
       };
 }
 

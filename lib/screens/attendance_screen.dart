@@ -7,7 +7,7 @@ import 'package:ticketz/shared/constants.dart';
 import 'package:flutter/material.dart';
 
 class AttendanceScreen extends StatelessWidget {
-  const AttendanceScreen({Key? key}) : super(key: key);
+  const AttendanceScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

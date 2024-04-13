@@ -124,7 +124,7 @@ import 'package:ticketz/providers/auth_state_provider.dart';
 import 'package:ticketz/providers/qr_state_provider.dart';
 
 class QRScanner extends StatefulWidget {
-  const QRScanner({Key? key}) : super(key: key);
+  const QRScanner({super.key});
 
   @override
   State<QRScanner> createState() => _QRScannerState();
@@ -135,6 +135,7 @@ class _QRScannerState extends State<QRScanner> {
   bool? permissionGranted;
   MobileScannerController controller = MobileScannerController(
     formats: [BarcodeFormat.qrCode],
+    detectionSpeed: DetectionSpeed.noDuplicates,
   );
 
   @override
@@ -144,13 +145,15 @@ class _QRScannerState extends State<QRScanner> {
         alignment: Alignment.center,
         children: [
           MobileScanner(
-            allowDuplicates: false,
             controller: controller,
-            onDetect: (qrCode, args) async {
-              setState(() {
-                this.qrCode = qrCode.rawValue;
-              });
-              await updateParticipantAttendance(this.qrCode!);
+            onDetect: (capture) async {
+              final List<Barcode> barcodes = capture.barcodes;
+              for (final barcode in barcodes) {
+                setState(() {
+                  qrCode = barcode.rawValue;
+                });
+                await updateParticipantAttendance(qrCode!);
+              }
             },
           ),
           Align(
@@ -164,7 +167,7 @@ class _QRScannerState extends State<QRScanner> {
                   icon: ValueListenableBuilder(
                     valueListenable: controller.torchState,
                     builder: (context, state, child) {
-                      switch (state as TorchState) {
+                      switch (state) {
                         case TorchState.off:
                           return const Icon(
                             Icons.flashlight_on,

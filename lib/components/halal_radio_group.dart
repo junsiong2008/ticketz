@@ -6,7 +6,7 @@ import 'package:ticketz/shared/constants.dart';
 enum HalalOption { halal, nonHalal }
 
 class HalalRadioGroup extends StatefulWidget {
-  const HalalRadioGroup({Key? key}) : super(key: key);
+  const HalalRadioGroup({super.key});
 
   @override
   State<HalalRadioGroup> createState() => _HalalRadioGroupState();
@@ -79,7 +79,7 @@ class _HalalRadioGroupState extends State<HalalRadioGroup> {
 enum VegetarianOption { vegetarian, nonVegetarian }
 
 class VegetarianRadioGroup extends StatefulWidget {
-  const VegetarianRadioGroup({Key? key}) : super(key: key);
+  const VegetarianRadioGroup({super.key});
 
   @override
   State<VegetarianRadioGroup> createState() => _VegetarianRadioGroupState();

@@ -12,7 +12,7 @@ class CustomFormField extends StatelessWidget {
   final bool readOnly;
 
   const CustomFormField({
-    Key? key,
+    super.key,
     required this.label,
     this.onChanged,
     this.textEditingController,
@@ -21,7 +21,7 @@ class CustomFormField extends StatelessWidget {
     this.obscureText = false,
     this.maxLines = 1,
     this.readOnly = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

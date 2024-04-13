@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 class LoadingAnimation extends StatelessWidget {
-  const LoadingAnimation({Key? key}) : super(key: key);
+  const LoadingAnimation({super.key});
 
   @override
   Widget build(BuildContext context) {

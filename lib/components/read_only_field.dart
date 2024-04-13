@@ -3,10 +3,10 @@ import 'package:ticketz/shared/constants.dart';
 
 class ReadOnlyField extends StatelessWidget {
   const ReadOnlyField({
-    Key? key,
+    super.key,
     required this.label,
     required this.content,
-  }) : super(key: key);
+  });
 
   final String label;
   final String content;

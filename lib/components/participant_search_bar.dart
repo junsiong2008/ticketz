@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ticketz/providers/search_provider.dart';
 
-class SearchBar extends StatefulWidget {
-  const SearchBar({
-    Key? key,
-  }) : super(key: key);
+class ParticipantSearchBar extends StatefulWidget {
+  const ParticipantSearchBar({
+    super.key,
+  });
 
   @override
-  State<SearchBar> createState() => _SearchBarState();
+  State<ParticipantSearchBar> createState() => _ParticipantSearchBarState();
 }
 
-class _SearchBarState extends State<SearchBar> {
+class _ParticipantSearchBarState extends State<ParticipantSearchBar> {
   TextEditingController? queryController;
   SearchProvider? searchProvider;
 

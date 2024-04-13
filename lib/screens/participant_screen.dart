@@ -4,7 +4,7 @@ import 'package:ticketz/components/participant_list.dart';
 import 'package:ticketz/components/registration_failed.dart';
 import 'package:ticketz/components/registration_form.dart';
 import 'package:ticketz/components/registration_successful.dart';
-import 'package:ticketz/components/search_bar.dart';
+import 'package:ticketz/components/participant_search_bar.dart';
 import 'package:ticketz/models/participant.dart';
 import 'package:ticketz/providers/registration_form_provider.dart';
 import 'package:ticketz/providers/registration_state_provider.dart';
@@ -14,7 +14,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class ParticipantScreen extends StatelessWidget {
-  const ParticipantScreen({Key? key}) : super(key: key);
+  const ParticipantScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class ParticipantScreen extends StatelessWidget {
         children: [
           Consumer<SearchProvider>(builder: ((context, value, child) {
             if (value.searchEnabled) {
-              return const SearchBar();
+              return const ParticipantSearchBar();
             } else {
               return PageTitle(
                 pageTitle: 'Participants',
@@ -73,7 +73,10 @@ class ParticipantScreen extends StatelessWidget {
                   right: 24,
                   child: FloatingActionButton(
                     backgroundColor: kPrimaryColor,
-                    child: const Icon(Icons.person_add),
+                    child: const Icon(
+                      Icons.person_add,
+                      color: Colors.white,
+                    ),
                     onPressed: () {
                       showModalBottomSheet<dynamic>(
                         isScrollControlled: true,

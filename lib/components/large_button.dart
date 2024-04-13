@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 class LargeButton extends StatelessWidget {
   const LargeButton({
-    Key? key,
+    super.key,
     required this.buttonColor,
     required this.labelColor,
     required this.labelIconData,
     required this.labelText,
     this.onTap,
-  }) : super(key: key);
+  });
 
   final Color buttonColor;
   final Color labelColor;

@@ -5,7 +5,7 @@ import 'package:ticketz/models/participant.dart';
 import 'package:ticketz/providers/excel_provider.dart';
 
 class ExportForm extends StatelessWidget {
-  const ExportForm({Key? key}) : super(key: key);
+  const ExportForm({super.key});
 
   @override
   Widget build(BuildContext context) {

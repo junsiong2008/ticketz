@@ -5,10 +5,10 @@ class PageTitle extends StatelessWidget {
   final List<Widget> actions;
 
   const PageTitle({
-    Key? key,
+    super.key,
     required this.pageTitle,
     required this.actions,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

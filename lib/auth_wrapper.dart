@@ -5,7 +5,7 @@ import 'package:ticketz/screens/main_screen.dart';
 import 'package:ticketz/screens/sign_in_screen.dart';
 
 class AuthWrapper extends StatelessWidget {
-  const AuthWrapper({Key? key}) : super(key: key);
+  const AuthWrapper({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -29,7 +29,9 @@ void main() async {
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
 
     // Firebase App Check
-    await FirebaseAppCheck.instance.activate();
+    await FirebaseAppCheck.instance.activate(
+      androidProvider: AndroidProvider.safetyNet,
+    );
 
     await FirebaseAppCheck.instance.setTokenAutoRefreshEnabled(true);
 
@@ -69,7 +71,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
@@ -77,11 +79,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Ticketz',
       theme: ThemeData(
-        fontFamily: 'Roboto',
-        colorScheme: ColorScheme.fromSwatch().copyWith(
-          primary: kPrimaryColor,
-        ),
-      ),
+          fontFamily: 'Roboto',
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: kPrimaryColor,
+          )),
       home: const AuthWrapper(),
     );
   }

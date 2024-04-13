@@ -12,7 +12,7 @@ import 'package:ticketz/components/primary_button.dart';
 import 'package:ticketz/providers/excel_provider.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   void signOut(BuildContext context) {
     final authProvider = Provider.of<AuthStateProvider>(context, listen: false);
@@ -61,14 +61,14 @@ class HomeScreen extends StatelessWidget {
                     ),
                     child: Stack(
                       children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.only(
+                        const Padding(
+                          padding: EdgeInsets.only(
                             top: 16.0,
                             left: 16.0,
                           ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
+                            children: [
                               Text(
                                 'Total Registered',
                                 style: TextStyle(
@@ -86,14 +86,6 @@ class HomeScreen extends StatelessWidget {
                           ),
                           child: Consumer<List<Participant>>(
                             builder: ((context, value, child) {
-                              if (value.isEmpty) {
-                                return const Align(
-                                  alignment: Alignment.center,
-                                  child: CircularProgressIndicator(
-                                    color: kPrimaryColor,
-                                  ),
-                                );
-                              }
                               return RegisteredLineChart(
                                 participants: value,
                               );
@@ -105,8 +97,8 @@ class HomeScreen extends StatelessWidget {
                           right: 0,
                           child: Padding(
                             padding: const EdgeInsets.only(
-                              right: 8.0,
-                              bottom: 8.0,
+                              right: 16.0,
+                              bottom: 16.0,
                             ),
                             child: Consumer<List<Participant>>(
                               builder: ((context, value, child) {

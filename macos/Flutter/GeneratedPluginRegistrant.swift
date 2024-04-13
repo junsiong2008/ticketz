@@ -11,7 +11,7 @@ import firebase_auth
 import firebase_core
 import firebase_crashlytics
 import mobile_scanner
-import path_provider_macos
+import path_provider_foundation
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
   FLTFirebaseFirestorePlugin.register(with: registry.registrar(forPlugin: "FLTFirebaseFirestorePlugin"))

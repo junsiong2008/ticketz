@@ -7,9 +7,9 @@ import 'package:ticketz/shared/constants.dart';
 
 class VerificationFailed extends StatelessWidget {
   const VerificationFailed({
-    Key? key,
+    super.key,
     required this.scannedCode,
-  }) : super(key: key);
+  });
   final String scannedCode;
 
   @override

@@ -11,10 +11,10 @@ class StudentStatusGroup extends StatefulWidget {
   final TextEditingController otherUnitController;
 
   const StudentStatusGroup({
-    Key? key,
+    super.key,
     required this.otherSecondarySchoolController,
     required this.otherUnitController,
-  }) : super(key: key);
+  });
 
   @override
   State<StudentStatusGroup> createState() => _StudentStatusGroupState();

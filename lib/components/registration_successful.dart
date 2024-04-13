@@ -3,7 +3,7 @@ import 'package:lottie/lottie.dart';
 import 'package:ticketz/shared/constants.dart';
 
 class RegistrationSuccessful extends StatelessWidget {
-  const RegistrationSuccessful({Key? key}) : super(key: key);
+  const RegistrationSuccessful({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +20,8 @@ class RegistrationSuccessful extends StatelessWidget {
               repeat: false,
               height: 64,
             ),
-            Column(
-              children: const [
+            const Column(
+              children: [
                 Text(
                   'Registration Successful',
                   textAlign: TextAlign.center,

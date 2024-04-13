@@ -11,14 +11,14 @@ class RegistrationFormField extends StatelessWidget {
   final List<TextInputFormatter>? inputFormatters;
 
   const RegistrationFormField({
-    Key? key,
+    super.key,
     required this.label,
     required this.textEditingController,
     required this.onChanged,
     this.keyboardType,
     this.validator,
     this.inputFormatters,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

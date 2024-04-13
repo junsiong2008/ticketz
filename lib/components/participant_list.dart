@@ -7,9 +7,9 @@ import 'package:ticketz/services/firestore.dart';
 
 class ParticipantList extends StatelessWidget {
   const ParticipantList({
-    Key? key,
+    super.key,
     required this.participants,
-  }) : super(key: key);
+  });
 
   final List<Participant> participants;
 
@@ -24,9 +24,9 @@ class ParticipantList extends StatelessWidget {
           key: UniqueKey(),
           background: Container(
             color: Colors.red,
-            child: Row(
+            child: const Row(
               mainAxisAlignment: MainAxisAlignment.end,
-              children: const [
+              children: [
                 Text(
                   'Delete',
                   style: TextStyle(color: Colors.white),
@@ -65,7 +65,9 @@ class ParticipantList extends StatelessWidget {
                         navigator.pop(true);
                       } catch (e) {
                         navigator.pop(false);
-                        _showErrorMessage(context);
+                        if (context.mounted) {
+                          _showErrorMessage(context);
+                        }
                       }
                     },
                     child: const Text('OK'),

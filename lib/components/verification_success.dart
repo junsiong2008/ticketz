@@ -12,9 +12,9 @@ class VerificationSuccess extends StatelessWidget {
   final String code;
 
   const VerificationSuccess({
-    Key? key,
+    super.key,
     required this.code,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

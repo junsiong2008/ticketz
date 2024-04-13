@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class QRAttendanceScreen extends StatelessWidget {
-  const QRAttendanceScreen({Key? key}) : super(key: key);
+  const QRAttendanceScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

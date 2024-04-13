@@ -5,9 +5,9 @@ import 'package:ticketz/shared/constants.dart';
 class RegistrationFailed extends StatelessWidget {
   final String? errorString;
   const RegistrationFailed({
-    Key? key,
+    super.key,
     this.errorString,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -7,9 +7,10 @@ import 'package:ticketz/components/student_status_group.dart';
 import 'package:ticketz/models/participant.dart';
 import 'package:ticketz/providers/registration_form_provider.dart';
 import 'package:ticketz/providers/registration_state_provider.dart';
+import 'package:ticketz/shared/constants.dart';
 
 class RegistrationForm extends StatefulWidget {
-  const RegistrationForm({Key? key}) : super(key: key);
+  const RegistrationForm({super.key});
 
   @override
   State<RegistrationForm> createState() => _RegistrationFormState();
@@ -261,6 +262,10 @@ class _RegistrationFormState extends State<RegistrationForm> {
                 child: Row(
                   children: [
                     ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: kPrimaryColor,
+                        foregroundColor: Colors.white,
+                      ),
                       onPressed: details.onStepContinue,
                       child: const Text('Continue'),
                     ),
@@ -276,6 +281,10 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         Row(
                           children: [
                             ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: kPrimaryColor,
+                                foregroundColor: Colors.white,
+                              ),
                               onPressed: () async {
                                 // Experimental Code
                                 var registrationStateProvider =
@@ -307,6 +316,10 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     child: Row(
                       children: [
                         ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: kPrimaryColor,
+                            foregroundColor: Colors.white,
+                          ),
                           onPressed: details.onStepContinue,
                           child: const Text('Continue'),
                         ),

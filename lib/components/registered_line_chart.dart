@@ -7,9 +7,9 @@ import 'package:ticketz/models/participant.dart';
 class RegisteredLineChart extends StatelessWidget {
   final List<Participant> participants;
   const RegisteredLineChart({
-    Key? key,
+    super.key,
     required this.participants,
-  }) : super(key: key);
+  });
 
   DateTime toYearMonthDay(DateTime datetime) {
     return DateTime(
@@ -74,13 +74,13 @@ class RegisteredLineChart extends StatelessWidget {
     }
     return LineChart(
       LineChartData(
-        lineTouchData: LineTouchData(
+        lineTouchData: const LineTouchData(
           handleBuiltInTouches: false,
         ),
-        gridData: FlGridData(
+        gridData: const FlGridData(
           show: false,
         ),
-        titlesData: FlTitlesData(
+        titlesData: const FlTitlesData(
           show: false,
         ),
         borderData: FlBorderData(
@@ -105,7 +105,7 @@ class RegisteredLineChart extends StatelessWidget {
             ),
             barWidth: 3,
             isStrokeCapRound: true,
-            dotData: FlDotData(
+            dotData: const FlDotData(
               show: false,
             ),
             belowBarData: BarAreaData(

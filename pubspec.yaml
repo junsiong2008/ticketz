@@ -15,10 +15,10 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.4.0+5
+version: 2.0.0+6
 
 environment:
-  sdk: ">=2.17.5 <3.0.0"
+  sdk: '>=3.1.3 <4.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -34,21 +34,21 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  lottie: ^1.3.0
-  firebase_core: ^1.20.0
-  firebase_auth: ^3.5.1
+  lottie: ^3.1.0
+  firebase_core: ^2.29.0
+  firebase_auth: ^4.19.1
   provider: ^6.0.3
-  fl_chart: ^0.55.0
-  cloud_firestore: ^3.4.1
-  syncfusion_flutter_xlsio: ^20.2.40-beta
+  fl_chart: ^0.67.0
+  cloud_firestore: ^4.16.1
+  syncfusion_flutter_xlsio: ^25.1.39
   path_provider: ^2.0.11
   better_open_file: ^3.6.3
-  permission_handler:  ^9.2.0
+  permission_handler: ^11.3.1
   #qr_code_scanner: ^1.0.0
-  firebase_crashlytics: ^2.8.6
-  firebase_app_check: ^0.0.6+18
-  intl: ^0.17.0
-  mobile_scanner: ^2.0.0
+  firebase_crashlytics: ^3.5.1
+  firebase_app_check: ^0.2.2+1
+  intl: ^0.19.0
+  mobile_scanner: ^4.0.1
 
 dev_dependencies:
   flutter_test:
@@ -59,7 +59,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.0
+  flutter_lints: ^3.0.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -10,10 +10,10 @@ import 'package:provider/provider.dart';
 
 class AttendanceDetailScreen extends StatelessWidget {
   const AttendanceDetailScreen({
-    Key? key,
+    super.key,
     required this.participantId,
     // required this.participant,
-  }) : super(key: key);
+  });
 
   // final Participant participant;
   final String participantId;
