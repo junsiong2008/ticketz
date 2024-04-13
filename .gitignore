@@ -48,3 +48,6 @@ app.*.map.json
 
 # Firebase API keys
 /lib/firebase_options.dart
+
+# Recaptcha site key
+lib/auth/secrets.dart
