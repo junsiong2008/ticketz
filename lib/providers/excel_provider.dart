@@ -1,6 +1,6 @@
 import 'package:better_open_file/better_open_file.dart';
+import 'package:flutter/foundation.dart';
 import 'package:ticketz/services/excel.dart';
-import 'package:flutter/cupertino.dart';
 
 import '../models/participant.dart';
 
@@ -14,7 +14,9 @@ class ExcelProvider extends ChangeNotifier {
   Future<void> exportToExcel(List<Participant> participants) async {
     try {
       filePath = await excelService.exportToExcel(participants);
-      openFile();
+      if (!kIsWeb) {
+        openFile();
+      }
     } on Exception {
       isError = true;
       errorMessage = 'Error while exporting the file.';

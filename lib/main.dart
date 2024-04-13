@@ -1,9 +1,11 @@
 import 'dart:async';
 
 import 'package:firebase_app_check/firebase_app_check.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
+import 'package:ticketz/auth/secrets.dart';
 import 'package:ticketz/auth_wrapper.dart';
 import 'package:ticketz/models/participant.dart';
 import 'package:ticketz/providers/auth_state_provider.dart';
@@ -25,12 +27,16 @@ void main() async {
       options: DefaultFirebaseOptions.currentPlatform,
     );
 
-    // Pass all uncaught errors from the framework to Crashlytics.
-    FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+    if (!kIsWeb) {
+      // Pass all uncaught errors from the framework to Crashlytics.
+      FlutterError.onError =
+          FirebaseCrashlytics.instance.recordFlutterFatalError;
+    }
 
     // Firebase App Check
     await FirebaseAppCheck.instance.activate(
-      androidProvider: AndroidProvider.safetyNet,
+      androidProvider: AndroidProvider.playIntegrity,
+      webProvider: ReCaptchaV3Provider(webRecaptchaSiteKey),
     );
 
     await FirebaseAppCheck.instance.setTokenAutoRefreshEnabled(true);
@@ -65,9 +71,11 @@ void main() async {
         child: const MyApp(),
       ),
     );
-  },
-      (error, stack) =>
-          FirebaseCrashlytics.instance.recordError(error, stack, fatal: true));
+  }, (error, stack) {
+    if (!kIsWeb) {
+      FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+    }
+  });
 }
 
 class MyApp extends StatelessWidget {

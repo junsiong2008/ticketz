@@ -1,3 +1,5 @@
+import 'dart:convert';
+import 'package:universal_html/html.dart' as html;
 import 'dart:io';
 import 'package:better_open_file/better_open_file.dart';
 import 'package:ticketz/models/participant.dart';
@@ -70,16 +72,26 @@ class ExcelService {
 
     workbook.dispose();
 
-    await Permission.storage.request();
+    if (kIsWeb) {
+      //Download the output file
+      html.AnchorElement(
+          href:
+              "data:application/octet-stream;charset=utf-16le;base64,${base64.encode(bytes)}")
+        ..setAttribute("download", "output.xlsx")
+        ..click();
+      return '';
+    } else {
+      await Permission.storage.request();
 
-    final directory = await getApplicationDocumentsDirectory();
-    final String path = directory.path;
-    final String fileName = '$path/Participants.xlsx';
-    final File file = File(fileName);
-    final File output = await file.writeAsBytes(bytes, flush: true);
+      final directory = await getApplicationDocumentsDirectory();
+      final String path = directory.path;
+      final String fileName = '$path/Participants.xlsx';
+      final File file = File(fileName);
+      final File output = await file.writeAsBytes(bytes, flush: true);
 
-    debugPrint(output.path);
-    return output.path;
+      debugPrint(output.path);
+      return output.path;
+    }
   }
 
   Future<OpenResult> openFile(String fileName) {
