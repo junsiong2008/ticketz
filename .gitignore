@@ -50,4 +50,4 @@ app.*.map.json
 /lib/firebase_options.dart
 
 # Recaptcha site key
-lib/auth/secrets.dart
+lib/secrets/*

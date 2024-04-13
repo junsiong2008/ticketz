@@ -5,7 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
-import 'package:ticketz/auth/secrets.dart';
+import 'package:ticketz/secrets/secrets.dart';
 import 'package:ticketz/auth_wrapper.dart';
 import 'package:ticketz/models/participant.dart';
 import 'package:ticketz/providers/auth_state_provider.dart';
