@@ -75,6 +75,7 @@ const List<String> kSchoolList = [
   'SMK Seri Keledang, Perak',
   'SMK Aminuddin Baki Chemor, Perak',
   'SMK Puteri',
+  'SMK Tunku Ampuan Najihah',
   'SMK Tunku Durah',
   'SMJK Chan Wa',
   'SMJK Chan Wa (II)',
