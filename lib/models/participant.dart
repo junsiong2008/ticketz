@@ -14,6 +14,7 @@ class Participant {
   String? allergic;
   String studentStatus;
   String? secondarySchool;
+  String? classroom;
   String? unit;
   DateTime datetimeCreated;
   bool isPaid = false;
@@ -34,6 +35,7 @@ class Participant {
     this.chineseName,
     this.allergic,
     this.secondarySchool,
+    this.classroom,
     this.unit,
     this.isPaid = false,
     this.isAttended = false,
@@ -59,6 +61,7 @@ class Participant {
         'chineseName': participant.chineseName,
         'allergic': participant.allergic,
         'secondarySchool': participant.secondarySchool,
+        'classroom': participant.classroom,
         'unit': participant.unit,
         'datetimeCreated': participant.datetimeCreated,
         'isPaid': participant.isPaid,
@@ -124,6 +127,9 @@ Participant _participantFromFirebase(QueryDocumentSnapshot snapshot) {
         : null,
     secondarySchool: snapshot.data().toString().contains('secondarySchool')
         ? snapshot.get('secondarySchool')
+        : null,
+    classroom: snapshot.data().toString().contains('classroom')
+        ? snapshot.get('classroom')
         : null,
     unit: snapshot.data().toString().contains('unit')
         ? snapshot.get('unit')

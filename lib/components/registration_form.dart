@@ -74,6 +74,9 @@ class _RegistrationFormState extends State<RegistrationForm> {
           secondarySchool: registrationFormProvider.secondarySchool != 'Other'
               ? registrationFormProvider.secondarySchool
               : registrationFormProvider.otherSecondarySchool,
+          classroom: registrationFormProvider.secondarySchool == 'SMJK Chan Wa'
+              ? registrationFormProvider.classroom
+              : null,
           unit: registrationFormProvider.unit != 'Other'
               ? registrationFormProvider.unit
               : registrationFormProvider.otherUnit,

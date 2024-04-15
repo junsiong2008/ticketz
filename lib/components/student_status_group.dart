@@ -170,6 +170,29 @@ class _StudentStatusGroupState extends State<StudentStatusGroup> {
               const SizedBox(
                 height: 8.0,
               ),
+              const SizedBox(
+                height: 8.0,
+              ),
+              const Text(
+                'Class',
+                style: kFormFieldLabelTextStyle,
+              ),
+              DropdownButtonFormField(
+                isExpanded: true,
+                hint: const Text('Class'),
+                value: provider.classroom,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                ),
+                items: kChanWaClasses
+                    .map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem(
+                    value: value,
+                    child: Text(value),
+                  );
+                }).toList(),
+                onChanged: provider.updateClassroom,
+              ),
               const Text(
                 'Unit',
                 style: kFormFieldLabelTextStyle,

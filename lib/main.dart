@@ -35,7 +35,6 @@ void main() async {
 
     // Firebase App Check
     await FirebaseAppCheck.instance.activate(
-      androidProvider: AndroidProvider.playIntegrity,
       webProvider: ReCaptchaV3Provider(webRecaptchaSiteKey),
     );
 

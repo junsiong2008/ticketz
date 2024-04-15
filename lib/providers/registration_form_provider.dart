@@ -10,6 +10,7 @@ class RegistrationFormProvider extends ChangeNotifier {
   String? emailAddress;
   String? allergic;
   String? secondarySchool = 'SMJK Chan Wa';
+  String? classroom = '1A';
   String? unit = 'Bulan Sabit Merah Malaysia';
   String? otherSecondarySchool;
   String? otherUnit;
@@ -53,6 +54,11 @@ class RegistrationFormProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  void updateClassroom(String? classroom) {
+    this.classroom = classroom;
+    notifyListeners();
+  }
+
   void updateUnit(String? unit) {
     this.unit = unit;
     notifyListeners();
@@ -91,6 +97,7 @@ class RegistrationFormProvider extends ChangeNotifier {
     emailAddress = null;
     allergic = null;
     secondarySchool = 'SMJK Chan Wa';
+    classroom = '1A';
     unit = 'Bulan Sabit Merah Malaysia';
     otherSecondarySchool = null;
     otherUnit = null;

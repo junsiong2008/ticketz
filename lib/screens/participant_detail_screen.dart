@@ -169,6 +169,10 @@ class ParticipantDetailScreen extends StatelessWidget {
                               content: participant.secondarySchool ?? 'N/A',
                             ),
                             ReadOnlyField(
+                              label: 'Classroom',
+                              content: participant.classroom ?? 'N/A',
+                            ),
+                            ReadOnlyField(
                               label: 'Unit',
                               content: participant.unit ?? 'N/A',
                             ),
